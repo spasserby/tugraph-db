@@ -116,11 +116,13 @@ struct Entry {
             return (type == rhs.type && constant == rhs.constant) ||
                    (EqualNull() && rhs.EqualNull());
         case NODE:
-            // TODO(anyone) should be this.vid = rhs.vid?
-            return (type == rhs.type && node == rhs.node) || (EqualNull() && rhs.EqualNull());
+            return (EqualNull() && rhs.EqualNull()) ||
+                   (type == rhs.type && node && rhs.node && node->PullVid() == rhs.node->PullVid());
         case RELATIONSHIP:
-            return (type == rhs.type && relationship == rhs.relationship) ||
-                   (EqualNull() && rhs.EqualNull());
+            return (EqualNull() && rhs.EqualNull()) ||
+                   (type == rhs.type && relationship && rhs.relationship && relationship->ItRef() &&
+                    rhs.relationship->ItRef() &&
+                    relationship->ItRef()->GetUid() == rhs.relationship->ItRef()->GetUid());
         case VAR_LEN_RELP:
         case NODE_SNAPSHOT:
         case RELP_SNAPSHOT:
