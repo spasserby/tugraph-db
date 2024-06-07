@@ -176,6 +176,8 @@ class TestCypherV2 : public TuGraphTest {
             // rewrite ast
             cypher::GenAnonymousAliasRewriter gen_anonymous_alias_rewriter;
             node->accept(gen_anonymous_alias_rewriter);
+            cypher::MultiPathPatternRewriter multi_path_pattern_rewriter(objAlloc_);
+            node->accept(multi_path_pattern_rewriter);
             // dump
             AstDumper dumper;
             auto ret = dumper.handle(node);
