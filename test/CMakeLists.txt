@@ -152,3 +152,23 @@ target_compile_definitions(unit_test PRIVATE
         FMA_IN_UNIT_TEST=1)
 
 add_dependencies(unit_test ${LGRAPH_TOOLKITS} lgraph_server)
+
+add_executable(test_expriment_plan
+        main.cpp
+        test_expriment_plan.cpp
+        ut_utils.cpp
+        test_lgraph_utils.cpp
+)
+
+target_link_libraries(test_expriment_plan
+        lgraph_server_lib
+        geax_isogql
+        bolt
+        librocksdb.a)
+
+target_link_libraries(test_expriment_plan
+        ${GTEST_MAIN_LIB}
+        ${GTEST_LIB})
+
+target_compile_definitions(test_expriment_plan PRIVATE
+        FMA_IN_UNIT_TEST=1)
