@@ -13,9 +13,7 @@
  */
 
 #include <memory>
-#include <optional>
 #include <string>
-#include <tuple>
 
 #include "./graph_factory.h"
 /* Make sure include graph_factory.h BEFORE antlr4-runtime.h. Otherwise causing the following error:

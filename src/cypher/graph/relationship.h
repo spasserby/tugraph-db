@@ -19,7 +19,7 @@
 
 #include <string>
 #include "cypher/graph/common.h"
-#include "parser/data_typedef.h"
+#include "cypher/parser/data_typedef.h"
 #include "cypher/filter/iterator.h"
 #include "cypher/parser/expression.h"
 

@@ -18,9 +18,9 @@
 #pragma once
 
 #include "core/data_type.h"  // lgraph::FieldData
-#include "parser/data_typedef.h"
-#include "graph/node.h"
-#include "graph/relationship.h"
+#include "cypher/parser/data_typedef.h"
+#include "cypher/graph/node.h"
+#include "cypher/graph/relationship.h"
 
 namespace cypher {
 
